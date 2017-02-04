@@ -1,12 +1,12 @@
-var request = require('request');
-var config = require('config');
+var request = require('request')
+var config = require('config')
 
 // Load configuration
-confEvent = config.get('event');
-confINat = config.get('iNaturalist');
+confEvent = config.get('event')
+confINat = config.get('iNaturalist')
 
 // URL for project observations
-var projectObsURL = confINat.api + 'observations/project/' + confEvent.slug + '.json';
+var projectObsURL = confINat.api + 'observations/project/' + confEvent.slug + '.json'
 
 // Callback function for project observations
 function observation_callback(error, response, body) {
