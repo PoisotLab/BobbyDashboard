@@ -9,6 +9,7 @@ block contentpane
 
 block scripts
     script.
+        $(".nav_map").addClass("active")
         // Get the map background
         var mymap = L.map('map').setView([-37, 175], 7);
         var layer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -17,15 +18,18 @@ block scripts
             });
         layer.addTo(mymap);
         // Add the pins for each observation
-        $.ajax({
-            type: 'GET',
-            url: '/obs/',
-            success: function(data) {
-            for (var i = 0; i < data.length; i++) {
-                var obs = data[i];
-                console.log(obs.latitude, obs.longitude)
-                L.marker([Number(obs.latitude), Number(obs.longitude)]).addTo(mymap)
+        function getObsPaged(page) {
+            $.ajax({
+                type: 'GET',
+                url: '/obs/' + page,
+                success: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var obs = data[i];
+                        L.marker([Number(obs.latitude), Number(obs.longitude)]).addTo(mymap)
+                    }
+                    getObsPaged(page+1)
                 }
-            }
-        })
+            })
+        }
+        getObsPaged(1)
 

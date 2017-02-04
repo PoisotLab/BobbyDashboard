@@ -36,7 +36,14 @@ body {
   width: 100px;
   font-family: sans-serif;
   border-bottom: 4px solid #e7e7e7;
+  font-variant: small-caps;
 }
 #navbar li:hover {
   border-bottom: 4px solid #c7c7c7;
+}
+#navbar li.active {
+  border-bottom: 4px solid #36d7b7;
+}
+#navbar li.active:hover {
+  border-bottom: 4px solid #1ba39c;
 }
