@@ -11,8 +11,11 @@ var projectObsURL = confINat.api + 'observations/project/' + confEvent.slug + '.
 // Callback function for project observations
 function observation_callback(error, response, body) {
     if (!error && response.statusCode == 200) {
-        var project_observations = JSON.parse(body)
-        console.log(project_observations)
+        var projectObservations = JSON.parse(body)
+        for(var i in projectObservations) {
+            var singleObservation = projectObservations[i]
+            console.log(singleObservation.latitude, singleObservation.longitude)
+        }
     }
 }
 
