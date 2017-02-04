@@ -19,6 +19,7 @@
   "homepage": "https://github.com/PoisotLab/BobbyDashboard#readme",
   "dependencies": {
     "config": "^1.25.1",
+    "d3": "^4.5.0",
     "request": "^2.79.0"
   }
 }
