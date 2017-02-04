@@ -1,6 +1,9 @@
 // Load the required modules
-var request = require('request')
+var rp = require('request-promise')
 var config = require('config')
+var express = require('express')
+var app = express()
+app.set('view engine', 'pug')
 
 // Load configuration variables
 confEvent = config.get('event')
@@ -9,23 +12,19 @@ confINat = config.get('iNaturalist')
 // Build URL for project observations
 var projectObsURL = confINat.api + 'observations/project/' + confEvent.slug + '.json'
 
-// Callback function for project observations
-function observation_callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-
-        // read the response as JSON object
-        var projectObservations = JSON.parse(body)
-
-        // then we loop through the observations
-        for(var i in projectObservations) {
-
-            // extract the observation and print the latitude and longitude
-            var singleObservation = projectObservations[i]
-            console.log(singleObservation.latitude, singleObservation.longitude)
-        }
-    }
+function generic_fetch_error (err) {
+    console.log(err)
 }
 
-// Get the list of observations and test the callback
-request(projectObsURL, observation_callback)
+app.get('/', function (req, res) {
+    rp(projectObsURL)
+    .then(function (result) {
+        var observations = JSON.parse(result)
+        res.render('index', {o: observations})
+    })
+    .catch(generic_fetch_error);
+})
 
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
