@@ -1,0 +1,31 @@
+extends master
+
+block infopane
+    div
+        INFO
+
+block contentpane
+    div#map
+
+block scripts
+    script.
+        // Get the map background
+        var mymap = L.map('map').setView([51.505, -0.09], 13);
+        var layer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'ESRI',
+            maxZoom: 19
+            });
+        layer.addTo(mymap);
+        // Add the pins for each observation
+        $.ajax({
+            type: 'GET',
+            url: '/obs/',
+            success: function(data) {
+            for (var i = 0; i < data.length; i++) {
+                var obs = data[i];
+                console.log(obs.latitude, obs.longitude)
+                var mark = L.marker([Number(obs.longitude), Number(obs.latitude)]).addTo(mymap)
+                }
+            }
+        })
+

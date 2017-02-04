@@ -25,18 +25,26 @@ app.use(stylus({
 
 app.use(express.static(publicDir))
 
-console.log(publicDir)
-
 // Build URL for project observations
-var projectObsURL = 'https://inaturalist.org/' + 'observations/project/' + confEvent.slug + '.json'
+var projectObsURL = 'http://www.inaturalist.org/' + 'observations/project/' + confEvent.slug + '.json'
 
-app.get('/', function (req, res) {
+// Generic callbacks
+function generic_error(err) {
+    console.log(err)
+}
+
+app.get('/map', function (req, res) {
+    res.render('map')
+})
+
+app.get('/obs', function (req, res) {
+    console.log('getting request')
     rp(projectObsURL)
     .then(function (result) {
         var observations = JSON.parse(result)
-        res.render('index', {o: observations})
+        res.send(observations)
     })
-    .catch(generic_fetch_error);
+    .catch(generic_error);
 })
 
 app.listen(3000, function () {
