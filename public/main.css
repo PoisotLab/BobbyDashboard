@@ -21,6 +21,7 @@ html,
 body {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
+  font-family: "Liberation Sans", sans-serif;
 }
 html {
   height: 100%;
@@ -29,6 +30,14 @@ body {
   margin-top: 50px;
   min-height: calc(100% -50px);
 }
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+table {
+  min-width: 100%;
+}
 .obsicon {
   width: 6px !important;
   height: 6px !important;
@@ -36,37 +45,98 @@ body {
   background-color: rgba(191,191,191,0.8);
   border: 1px solid rgba(153,153,153,0.5);
 }
-.Insecta {
+.obsicon.Insecta {
   background-color: rgba(111,38,0,0.8);
   border: 1px solid rgba(25,0,0,0.5);
 }
-.Mammalia {
+.obsicon.Mammalia {
   background-color: rgba(175,98,0,0.8);
   border: 1px solid rgba(127,3,0,0.5);
 }
-.Plantae {
+.obsicon.Plantae {
   background-color: rgba(215,179,93,0.8);
   border: 1px solid rgba(191,133,0,0.5);
 }
-.Actinopterygii {
+.obsicon.Actinopterygii {
   background-color: rgba(244,226,180,0.8);
   border: 1px solid rgba(237,209,135,0.5);
 }
-.Aves {
+.obsicon.Aves {
   background-color: rgba(185,229,223,0.8);
   border: 1px solid rgba(143,213,203,0.5);
 }
-.Reptilia {
+.obsicon.Reptilia {
   background-color: rgba(96,193,178,0.8);
   border: 1px solid rgba(1,155,131,0.5);
 }
-.Fungi {
+.obsicon.Fungi {
   background-color: rgba(3,125,115,0.8);
   border: 1px solid rgba(0,47,31,0.5);
 }
-.Amphibia {
+.obsicon.Amphibia {
   background-color: rgba(0,64,54,0.8);
   border: 1px solid rgba(0,0,0,0.5);
+}
+.fa.Mammalia {
+  color: #bf812d !important;
+}
+.fa.Plantae {
+  color: #dfc27d !important;
+}
+.fa.Aves {
+  color: #c7eae5 !important;
+}
+.fa.Reptilia {
+  color: #80cdc1 !important;
+}
+.fa.Amphibia {
+  color: #01665e !important;
+}
+.fa.Fungi {
+  color: #35978f !important;
+}
+.fa.Actinopterygii {
+  color: #f6e8c3 !important;
+}
+.fa.Insecta {
+  color: #8c510a !important;
+}
+#stats {
+  position: fixed;
+  background-color: #f5f7fa;
+  width: 300px;
+  right: 0;
+  top: 50px;
+  z-index: 500;
+  margin: 0 0 0 0;
+  padding: 2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#stats .summary {
+  font-size: 90%;
+}
+#stats .summary th {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  color: #656d78;
+  text-align: left;
+}
+#stats .summary td,
+#stats .summary tr,
+#stats .summary th {
+  border-bottom: 1px solid #aab2bd;
+  border-top: 1px solid #aab2bd;
+  padding: 0.3em;
+}
+#main {
+  width: calc(100% - 300px);
+  margin: 0 0 0 0;
+  padding: 2em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 #navbar {
   display: block;

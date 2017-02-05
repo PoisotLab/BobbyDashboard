@@ -35,6 +35,10 @@ dashboard.get('/map', function (req, res) {
     res.render('map', confEvent)
 })
 
+dashboard.get('/taxon', function (req, res) {
+    res.render('taxon', confEvent)
+})
+
 dashboard.get('/obs/:page', function (req, res) {
     // Build URL for project observations
     var projectObsURL = 'http://www.inaturalist.org/' + 'observations/project/' + confEvent.slug + '.json?page=' + req.params.page

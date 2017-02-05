@@ -13,6 +13,7 @@ substract(a, b)
 html, body
     margin: 0 0 0 0
     padding: 0 0 0 0
+    font-family: $sans
 
 html
     height: 100%
@@ -20,6 +21,12 @@ html
 body
     margin-top: $barheight
     min-height: calc(100%-50px)
+
+table, th, td
+    border-collapse: collapse
+
+table
+    min-width: 100%
 
 colored-icon(n)
     background-color: transparentify(n, #fff, 0.8)
@@ -30,30 +37,74 @@ colored-icon(n)
     height: 6px !important
     border-radius: 6px
     colored-icon #ccc
+    &.Insecta
+        colored-icon $InsectaColor
+    &.Mammalia
+        colored-icon $MammaliaColor
+    &.Plantae
+        colored-icon $PlantaeColor
+    &.Actinopterygii
+        colored-icon $ActinopterygiiColor
+    &.Aves
+        colored-icon $AvesColor
+    &.Reptilia
+        colored-icon $ReptiliaColor
+    &.Fungi
+        colored-icon $FungiColor
+    &.Amphibia
+        colored-icon $AmphibiaColor
 
-.Insecta
-    colored-icon $InsectaColor
+.fa.Mammalia
+    color: $MammaliaColor !important
+
+.fa.Plantae
+    color: $PlantaeColor !important
+
+.fa.Aves
+    color: $AvesColor !important
+
+.fa.Reptilia
+    color: $ReptiliaColor !important
+
+.fa.Amphibia
+    color: $AmphibiaColor !important
     
-.Mammalia
-    colored-icon $MammaliaColor
-
-.Plantae
-    colored-icon $PlantaeColor
-
-.Actinopterygii
-    colored-icon $ActinopterygiiColor
-
-.Aves
-    colored-icon $AvesColor
+.fa.Fungi
+    color: $FungiColor !important
     
-.Reptilia
-    colored-icon $ReptiliaColor
-    
-.Fungi
-    colored-icon $FungiColor
+.fa.Actinopterygii
+    color: $ActinopterygiiColor !important
 
-.Amphibia
-    colored-icon $AmphibiaColor
+.fa.Insecta
+    color: $InsectaColor !important
+
+#stats
+    position: fixed
+    background-color: $elements
+    width: 300px
+    right: 0
+    top: $barheight
+    z-index: 500
+    margin: 0 0 0 0
+    padding: 2em
+    box-sizing: border-box
+    .summary
+        font-size: 90%
+        th
+            font-variant: small-caps
+            text-transform: lowercase
+            color: $titles
+            text-align: left
+        td, tr, th
+            border-bottom: 1px solid $shadow
+            border-top: 1px solid $shadow
+            padding: 0.3em
+
+#main
+    width: calc(100% - 300px)
+    margin: 0 0 0 0
+    padding: 2em
+    box-sizing: border-box
 
 #navbar
     a
