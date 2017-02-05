@@ -2,18 +2,18 @@ html,
 body {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
-  min-height: 100%;
+}
+html {
   height: 100%;
 }
 body {
   margin-top: 50px;
-}
-#map {
-  height: 850px;
+  min-height: calc(100% -50px);
+  padding-bottom: -$barheight !important;
 }
 .obsicon {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
   border-radius: 6px;
   background-color: rgba(191,191,191,0.8);
   border: 1px solid rgba(153,153,153,0.5);

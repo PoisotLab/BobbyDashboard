@@ -9,6 +9,7 @@ block contentpane
 
 block scripts
     script.
+        $("#map").height($("html").height()-$("#navbar").height())
         $(".nav_map").addClass("active")
         // Get the map background
         var mymap = L.map('map').setView([#{coordinates.latitude}, #{coordinates.longitude}], #{coordinates.zoom});

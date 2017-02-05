@@ -1,10 +1,10 @@
 {
     "event": {
-        "slug": "san-francisco-biodiversity",
+        "slug": "wild-basin-biodiversity-project",
         "coordinates": {
-            "latitude": 37.46,
-            "longitude": -122.25,
-            "zoom": 10
+            "latitude": 30.30,
+            "longitude": -97.81,
+            "zoom": 15
         }
     },
     "app": {
