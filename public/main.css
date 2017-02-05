@@ -12,8 +12,8 @@ body {
   padding-bottom: -$barheight !important;
 }
 .obsicon {
-  width: 5px;
-  height: 5px;
+  width: 6px !important;
+  height: 6px !important;
   border-radius: 6px;
   background-color: rgba(191,191,191,0.8);
   border: 1px solid rgba(153,153,153,0.5);
@@ -52,7 +52,7 @@ body {
 }
 #navbar {
   display: block;
-  background-color: #fcfcfc;
+  background-color: #f8f8f5;
   position: fixed;
   top: 0;
   width: 100%;
@@ -60,6 +60,11 @@ body {
   -webkit-box-shadow: 0px 0px 2px 2px #888;
   box-shadow: 0px 0px 2px 2px #888;
   z-index: 1000;
+}
+#navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 #navbar ul {
   list-style: none;
@@ -73,7 +78,7 @@ body {
   display: inline-block;
   text-align: center;
   width: 100px;
-  font-family: sans-serif;
+  font-family: "Liberation Sans", sans-serif;
   border-bottom: 4px solid rgba(143,143,143,0.5);
   font-variant: small-caps;
 }

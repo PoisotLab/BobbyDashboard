@@ -9,12 +9,14 @@ block contentpane
 
 block scripts
     script.
+        // Set the map to 100% of the height
         $("#map").height($("html").height()-$("#navbar").height())
         $(".nav_map").addClass("active")
         // Get the map background
         var mymap = L.map('map').setView([#{coordinates.latitude}, #{coordinates.longitude}], #{coordinates.zoom});
         var myIcon = L.divIcon({className: 'marker'});
-        var layer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        var tile_server = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+        var layer = L.tileLayer(tile_server, {
             attribution: 'ESRI',
             maxZoom: 19
             });

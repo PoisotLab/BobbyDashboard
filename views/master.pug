@@ -12,6 +12,10 @@ html
         block contentpane
         div#navbar
             ul
-                li.nav_home home
-                li.nav_map map
+                a(href="/")
+                    li.nav_home home
+                a(href="/map")
+                    li.nav_map map
+                a(href="/taxon")
+                    li.nav_tax taxon
         block scripts

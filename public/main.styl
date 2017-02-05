@@ -1,4 +1,4 @@
-$sans = sans-serif
+$sans = "Liberation Sans", sans-serif
 $mono = monospace
 
 $barheight = 50px
@@ -29,9 +29,9 @@ colored-icon(n)
     background-color: transparentify(n, #fff, 0.8)
     border: 1px solid transparentify(n, #fff, 0.5)
 
-.obsicon
-    width: 5px
-    height: 5px
+.obsicon 
+    width: 6px !important
+    height: 6px !important
     border-radius: 6px
     colored-icon #ccc
 
@@ -70,8 +70,12 @@ $AmphibiaColor = #01665e
 
 
 #navbar
+    a
+        text-decoration: none
+        color: #333
+        font-weight: 500
     display: block
-    background-color: #fcfcfc
+    background-color: #f8f8f5
     position: fixed
     top: 0
     width: 100%
