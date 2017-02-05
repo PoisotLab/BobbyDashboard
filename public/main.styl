@@ -3,10 +3,7 @@ $mono = monospace
 
 $barheight = 50px
 
-$low = #c7c7c7
-$low_muted = transparentify($low, #fff, 0.5)
-$high = #1ba39c
-$high_muted = transparentify($high, #fff, 0.5)
+@import "styles/colors.styl"
 
 substract(a, b)
     a = unit(a, px)
@@ -23,7 +20,6 @@ html
 body
     margin-top: $barheight
     min-height: calc(100%-50px)
-    padding-bottom: -$barheight !important
 
 colored-icon(n)
     background-color: transparentify(n, #fff, 0.8)
@@ -34,15 +30,6 @@ colored-icon(n)
     height: 6px !important
     border-radius: 6px
     colored-icon #ccc
-
-$InsectaColor = #8c510a
-$MammaliaColor = #bf812d
-$PlantaeColor = #dfc27d
-$ActinopterygiiColor = #f6e8c3
-$AvesColor = #c7eae5
-$ReptiliaColor = #80cdc1
-$FungiColor = #35978f
-$AmphibiaColor = #01665e
 
 .Insecta
     colored-icon $InsectaColor
@@ -68,19 +55,18 @@ $AmphibiaColor = #01665e
 .Amphibia
     colored-icon $AmphibiaColor
 
-
 #navbar
     a
         text-decoration: none
-        color: #333
+        color: $text
         font-weight: 500
     display: block
-    background-color: #f8f8f5
+    background-color: $elements
     position: fixed
     top: 0
     width: 100%
     height: $barheight
-    box-shadow: 0px 0px 2px 2px #888
+    box-shadow: 0px 0px 2px 2px $shadow
     z-index: 1000
     ul
         list-style: none
