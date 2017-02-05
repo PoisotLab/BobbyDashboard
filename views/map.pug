@@ -1,7 +1,7 @@
 extends master
 
 block infopane
-    div
+    div#sidebar
         INFO
 
 block contentpane
@@ -11,8 +11,9 @@ block scripts
     script.
         $(".nav_map").addClass("active")
         // Get the map background
-        var mymap = L.map('map').setView([-37, 175], 7);
-        var layer = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        var mymap = L.map('map').setView([#{coordinates.latitude}, #{coordinates.longitude}], #{coordinates.zoom});
+        var myIcon = L.divIcon({className: 'marker'});
+        var layer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: 'ESRI',
             maxZoom: 19
             });
@@ -25,9 +26,31 @@ block scripts
                 success: function(data) {
                     for (var i = 0; i < data.length; i++) {
                         var obs = data[i];
-                        L.marker([Number(obs.latitude), Number(obs.longitude)]).addTo(mymap)
+                        iconicTaxonName = 'Unidentified';
+                        if (obs.hasOwnProperty('iconic_taxon_name')) {
+                            if (obs.iconic_taxon_name) {
+                                iconicTaxonName = obs.iconic_taxon_name
+                            }
+                        }
+                        taxName = 'no species name'
+                        if (obs.hasOwnProperty('taxon')) {
+                            if (obs.taxon.name) {
+                                taxName = obs.taxon.name
+                            }
+                        }
+                        L.marker(
+                            [Number(obs.latitude), Number(obs.longitude)],
+                            {
+                                icon: L.divIcon({className: 'obsicon '+iconicTaxonName}),
+                                title: taxName
+                            }
+                        ).addTo(mymap)
                     }
-                    getObsPaged(page+1)
+                    // This pages through the data every time the page is loaded
+                    // which will need to be optimized
+                    if(data.length > 0) {
+                        getObsPaged(page+1)
+                    }
                 }
             })
         }

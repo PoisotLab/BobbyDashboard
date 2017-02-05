@@ -11,6 +11,45 @@ body {
 #map {
   height: 850px;
 }
+.obsicon {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background-color: rgba(191,191,191,0.8);
+  border: 1px solid rgba(153,153,153,0.5);
+}
+.Insecta {
+  background-color: rgba(111,38,0,0.8);
+  border: 1px solid rgba(25,0,0,0.5);
+}
+.Mammalia {
+  background-color: rgba(175,98,0,0.8);
+  border: 1px solid rgba(127,3,0,0.5);
+}
+.Plantae {
+  background-color: rgba(215,179,93,0.8);
+  border: 1px solid rgba(191,133,0,0.5);
+}
+.Actinopterygii {
+  background-color: rgba(244,226,180,0.8);
+  border: 1px solid rgba(237,209,135,0.5);
+}
+.Aves {
+  background-color: rgba(185,229,223,0.8);
+  border: 1px solid rgba(143,213,203,0.5);
+}
+.Reptilia {
+  background-color: rgba(96,193,178,0.8);
+  border: 1px solid rgba(1,155,131,0.5);
+}
+.Fungi {
+  background-color: rgba(3,125,115,0.8);
+  border: 1px solid rgba(0,47,31,0.5);
+}
+.Amphibia {
+  background-color: rgba(0,64,54,0.8);
+  border: 1px solid rgba(0,0,0,0.5);
+}
 #navbar {
   display: block;
   background-color: #fcfcfc;
@@ -35,14 +74,14 @@ body {
   text-align: center;
   width: 100px;
   font-family: sans-serif;
-  border-bottom: 4px solid #e7e7e7;
+  border-bottom: 4px solid rgba(143,143,143,0.5);
   font-variant: small-caps;
 }
 #navbar li:hover {
   border-bottom: 4px solid #c7c7c7;
 }
 #navbar li.active {
-  border-bottom: 4px solid #36d7b7;
+  border-bottom: 4px solid rgba(0,71,57,0.5);
 }
 #navbar li.active:hover {
   border-bottom: 4px solid #1ba39c;

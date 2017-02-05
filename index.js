@@ -51,7 +51,7 @@ function generic_error(err) {
 }
 
 dashboard.get('/map', function (req, res) {
-    res.render('map')
+    res.render('map', confEvent)
 })
 
 dashboard.get('/obs/:page', function (req, res) {

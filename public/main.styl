@@ -4,9 +4,9 @@ $mono = monospace
 $barheight = 50px
 
 $low = #c7c7c7
-$low_muted = #e7e7e7
+$low_muted = transparentify($low, #fff, 0.5)
 $high = #1ba39c
-$high_muted = #36d7b7
+$high_muted = transparentify($high, #fff, 0.5)
 
 substract(a, b)
     a = unit(a, px)
@@ -25,6 +25,51 @@ body
 
 #map
     height: substract(900px, $barheight)
+
+.obsicon
+    width: 6px
+    height: 6px
+    border-radius: 6px
+    background-color: transparentify(#ccc, #fff, 0.8)
+    border: 1px solid transparentify(#ccc, #fff, 0.5)
+
+colored-icon(n)
+    background-color: transparentify(n, #fff, 0.8)
+    border: 1px solid transparentify(n, #fff, 0.5)
+
+$InsectaColor = #8c510a
+$MammaliaColor = #bf812d
+$PlantaeColor = #dfc27d
+$ActinopterygiiColor = #f6e8c3
+$AvesColor = #c7eae5
+$ReptiliaColor = #80cdc1
+$FungiColor = #35978f
+$AmphibiaColor = #01665e
+
+.Insecta
+    colored-icon $InsectaColor
+    
+.Mammalia
+    colored-icon $MammaliaColor
+
+.Plantae
+    colored-icon $PlantaeColor
+
+.Actinopterygii
+    colored-icon $ActinopterygiiColor
+
+.Aves
+    colored-icon $AvesColor
+    
+.Reptilia
+    colored-icon $ReptiliaColor
+    
+.Fungi
+    colored-icon $FungiColor
+
+.Amphibia
+    colored-icon $AmphibiaColor
+
 
 #navbar
     display: block
@@ -55,4 +100,4 @@ body
             border-bottom: 4px solid $high_muted
             &:hover
                 border-bottom: 4px solid $high
-            
+
