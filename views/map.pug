@@ -22,8 +22,8 @@ block scripts
             mymap.invalidateSize()
         }, 400);
         var myIcon = L.divIcon({className: 'marker'});
-        var tile_server = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
-        var layer = L.tileLayer(tile_server, {
+        var tileServer = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
+        var layer = L.tileLayer(tileServer, {
             attribution: 'ESRI',
             maxZoom: 19
             });
