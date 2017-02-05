@@ -9,18 +9,9 @@ block contentpane
 
 block scripts
     script.
-        // Set the map to 100% of the height
-        $(window).resize(function(){
-            $("#map").height($("html").height()-$("#navbar").height())
-            mymap.invalidateSize()
-        })
         $(".nav_map").addClass("active")
         // Get the map background
         var mymap = L.map('map').setView([#{coordinates.latitude}, #{coordinates.longitude}], #{coordinates.zoom});
-        setTimeout(function(){
-            $("#map").height($("html").height()-$("#navbar").height())
-            mymap.invalidateSize()
-        }, 400);
         var myIcon = L.divIcon({className: 'marker'});
         var tileServer = 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
         var layer = L.tileLayer(tileServer, {
