@@ -1,7 +1,7 @@
 // Load the required modules
-var rp = require('request-promise')
+var rp = require('request-promise-cache')
 var config = require('config')
-var fs = require('fs')
+var fs = require('fs-then')
 
 // Web packages
 var express = require('express')
@@ -26,25 +26,6 @@ dashboard.use(stylus({
 
 dashboard.use(express.static(publicDir))
 
-// Caching the results, updated every five minutes or unless called explicitely
-function readEventPage(slug, per_page, page) {
-    console.log("Reading event stream")
-    // Build the URL
-    var url = 'http://www.inaturalist.org/' + 
-        'observations/project/' + slug + '.json' +
-        '?page=' + page + '&per_page=' + per_page
-    // Get the URL
-    rp(url)
-    .then(function(result) {
-        console.log("Got results")
-        var obs = JSON.parse(result)
-        res.send(obs)
-
-    })
-    .catch(generic_error)
-}
-
-
 // Generic callbacks
 function generic_error(err) {
     console.log(err)
@@ -59,9 +40,14 @@ dashboard.get('/obs/:page', function (req, res) {
     var projectObsURL = 'http://www.inaturalist.org/' + 'observations/project/' + confEvent.slug + '.json?page=' + req.params.page
     console.log('Getting request to update the observations')
     console.log(projectObsURL)
-    rp(projectObsURL)
-    .then(function (result) {
-        var observations = JSON.parse(result)
+    rp({
+        url: projectObsURL,
+        cacheKey: projectObsURL,
+        cacheTTL: Number(confApp.cache)*60*1000,
+        cacheLimit: 10
+    })
+    .then(function (returned) {
+        var observations = JSON.parse(returned.body)
         res.send(observations)
     })
     .catch(generic_error);

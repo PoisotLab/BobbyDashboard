@@ -8,6 +8,7 @@
         }
     },
     "app": {
-        "public": "public"
+        "public": "public",
+        "ttl": 5
     }
 }
