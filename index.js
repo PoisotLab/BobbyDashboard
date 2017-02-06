@@ -31,6 +31,10 @@ function generic_error(err) {
     console.log(err)
 }
 
+dashboard.get('/', function (req, res) {
+    res.render('home', confEvent)
+})
+
 dashboard.get('/map', function (req, res) {
     res.render('map', confEvent)
 })
