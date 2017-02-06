@@ -14,11 +14,6 @@ block contentpane
 
 block scripts
     script.
-        // Set the map to 100% of the height
-        //-$("#stats").height($("html").height()-$("#navbar").height())
-        //-$(window).resize(function(){
-            //-$("#stats").height($("html").height()-$("#navbar").height())
-        //-})
         $(".nav_tax").addClass("active")
         var unique=Object()
         // Add the pins for each observation
@@ -52,6 +47,7 @@ block scripts
                     // When the data are collected, we can update the stats sidebar
                     for (i in Object.keys(unique)) {
                         var tName = Object.keys(unique)[i];
+                        // Update the table (if required)
                         if ( $(".summary ."+tName).length == 0 ) {
                         $(".summary")
                             .append($('<tr>').addClass(tName)
@@ -64,8 +60,19 @@ block scripts
                             )
                         }
                         $(".summary ." + tName + " .species").text(Object.keys(unique[tName]).length)
+                        // Update the main page (if required)
+                        if ( $("#main ."+tName).length == 0 ) {
+                            $("#main")
+                            .append(
+                                $("<div/>").addClass("majortaxa").addClass(tName)
+                            )
+                            $("#main ."+tName).append($("<h1/>").text(tName))
+                            $("#main ."+tName).append($("<table/>").addClass("taxatable"))
+                        }
+                        //
                         var totalObs = 0;
                         for (k in Object.keys(unique[tName])) {
+                            // Update the count
                             totalObs += unique[tName][Object.keys(unique[tName])[k]].length
                         }
                         $(".summary ." + tName + " .obs").text(totalObs)
