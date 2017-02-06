@@ -37,22 +37,28 @@ colored-icon(n)
     height: 6px !important
     border-radius: 6px
     colored-icon #ccc
+    &.Actinopterygii
+        colored-icon $ActinopterygiiColor
+    &.Amphibia
+        colored-icon $AmphibiaColor
+    &.Aves
+        colored-icon $AvesColor
     &.Insecta
         colored-icon $InsectaColor
     &.Mammalia
         colored-icon $MammaliaColor
     &.Plantae
         colored-icon $PlantaeColor
-    &.Actinopterygii
-        colored-icon $ActinopterygiiColor
-    &.Aves
-        colored-icon $AvesColor
     &.Reptilia
         colored-icon $ReptiliaColor
     &.Fungi
         colored-icon $FungiColor
-    &.Amphibia
-        colored-icon $AmphibiaColor
+    &.Animalia
+        colored-icon $AnimaliaColor
+    &.Mollusca
+        colored-icon $MolluscaColor
+    &.Chromista
+        colored-icon $ChromistaColor
 
 .fa.Mammalia
     color: $MammaliaColor !important
@@ -77,6 +83,15 @@ colored-icon(n)
 
 .fa.Insecta
     color: $InsectaColor !important
+    
+.fa.Animalia
+    color: $AnimaliaColor !important
+    
+.fa.Mollusca
+    color: $MolluscaColor !important
+
+.fa.Chromista
+    color: $ChromistaColor !important
 
 #stats
     position: fixed

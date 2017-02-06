@@ -45,61 +45,82 @@ table {
   background-color: rgba(191,191,191,0.8);
   border: 1px solid rgba(153,153,153,0.5);
 }
-.obsicon.Insecta {
-  background-color: rgba(111,38,0,0.8);
-  border: 1px solid rgba(25,0,0,0.5);
-}
-.obsicon.Mammalia {
-  background-color: rgba(175,98,0,0.8);
-  border: 1px solid rgba(127,3,0,0.5);
-}
-.obsicon.Plantae {
-  background-color: rgba(215,179,93,0.8);
-  border: 1px solid rgba(191,133,0,0.5);
-}
 .obsicon.Actinopterygii {
-  background-color: rgba(244,226,180,0.8);
-  border: 1px solid rgba(237,209,135,0.5);
-}
-.obsicon.Aves {
-  background-color: rgba(185,229,223,0.8);
-  border: 1px solid rgba(143,213,203,0.5);
-}
-.obsicon.Reptilia {
-  background-color: rgba(96,193,178,0.8);
-  border: 1px solid rgba(1,155,131,0.5);
-}
-.obsicon.Fungi {
-  background-color: rgba(3,125,115,0.8);
-  border: 1px solid rgba(0,47,31,0.5);
+  background-color: rgba(200,0,0,0.8);
+  border: 1px solid rgba(167,0,0,0.5);
 }
 .obsicon.Amphibia {
-  background-color: rgba(0,64,54,0.8);
+  background-color: rgba(179,0,50,0.8);
+  border: 1px solid rgba(133,0,0,0.5);
+}
+.obsicon.Aves {
+  background-color: rgba(0,84,199,0.8);
+  border: 1px solid rgba(0,0,165,0.5);
+}
+.obsicon.Insecta {
+  background-color: rgba(66,135,6,0.8);
+  border: 1px solid rgba(0,63,0,0.5);
+}
+.obsicon.Mammalia {
+  background-color: rgba(155,161,0,0.8);
+  border: 1px solid rgba(95,105,0,0.5);
+}
+.obsicon.Plantae {
+  background-color: rgba(0,88,70,0.8);
   border: 1px solid rgba(0,0,0,0.5);
 }
+.obsicon.Reptilia {
+  background-color: rgba(53,16,5,0.8);
+  border: 1px solid rgba(0,0,0,0.5);
+}
+.obsicon.Fungi {
+  background-color: rgba(0,125,145,0.8);
+  border: 1px solid rgba(0,47,79,0.5);
+}
+.obsicon.Animalia {
+  background-color: rgba(90,0,139,0.8);
+  border: 1px solid rgba(0,0,69,0.5);
+}
+.obsicon.Mollusca {
+  background-color: rgba(255,136,0,0.8);
+  border: 1px solid rgba(255,65,0,0.5);
+}
+.obsicon.Chromista {
+  background-color: rgba(0,106,198,0.8);
+  border: 1px solid rgba(0,17,163,0.5);
+}
 .fa.Mammalia {
-  color: #bf812d !important;
+  color: #afb42b !important;
 }
 .fa.Plantae {
-  color: #dfc27d !important;
+  color: #00796b !important;
 }
 .fa.Aves {
-  color: #c7eae5 !important;
+  color: #1976d2 !important;
 }
 .fa.Reptilia {
-  color: #80cdc1 !important;
+  color: #5d4037 !important;
 }
 .fa.Amphibia {
-  color: #01665e !important;
+  color: #c2185b !important;
 }
 .fa.Fungi {
-  color: #35978f !important;
+  color: #0097a7 !important;
 }
 .fa.Actinopterygii {
-  color: #f6e8c3 !important;
+  color: #d32f2f !important;
 }
 .fa.Insecta {
-  color: #8c510a !important;
+  color: #689f38 !important;
+}
+.fa.Animalia {
+  color: #7b1fa2 !important;
+}
+.fa.Mollusca {
+  color: #ffa000 !important;
+}
+.fa.Chromista {
+  color: #0288d1 !important;
 }
 #stats {
   position: fixed;
