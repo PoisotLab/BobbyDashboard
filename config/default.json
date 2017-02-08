@@ -1,10 +1,10 @@
 {
     "event": {
-        "slug": "bosque-de-chapultepec-ciudad-de-mexico",
+        "slug": "anahuac-national-wildlife-refuge",
         "coordinates": {
-            "latitude": 19.4160066849,
-            "longitude": -99.1986465454,
-            "zoom": 14
+            "latitude": 29.6101675392,
+            "longitude": -94.4745426485,
+            "zoom": 10
         }
     },
     "app": {

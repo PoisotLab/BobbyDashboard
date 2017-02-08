@@ -13,17 +13,13 @@ block scripts
         var svg = d3.select("svg"),
             width = +svg.attr("width"),
             height = +svg.attr("height")
-        var a = {id: "a"},
-            b = {id: "b"}
-        //-var nodes = [a, b];
-        //-var links = [{source: a, target: b}];
         var nodes = [], links = [];
         var simulation = d3.forceSimulation(nodes)
-            .force("charge", d3.forceManyBody().strength(-10))
-            .force("link", d3.forceLink(links).distance(25))
+            .force("charge", d3.forceManyBody().strength(-200))
+            .force("link", d3.forceLink(links).distance(100))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
-            .alphaTarget(1)
+            .alphaTarget(0)
             .on("tick", ticked);
 
         var g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"),
@@ -44,7 +40,7 @@ block scripts
             // Apply the general update pattern to the nodes.
             node = node.data(nodes, function(d) { return d.id;});
             node.exit().remove();
-            node = node.enter().append("circle").attr("fill", "#c4e").attr("r", 8).merge(node);
+            node = node.enter().append("circle").attr("fill", "#c4e").attr("r", 8).attr("class", function(d){return(d.type)}).merge(node);
 
             // Apply the general update pattern to the links.
             link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
@@ -64,17 +60,24 @@ block scripts
                 success: function(data) {
                     for (var i = 0; i < data.length; i++) {
                         var obs = data[i];
-                        var tax = {id: obs.taxon_id},
-                            usr = {id: obs.user_id},
-                            lnk = {source: usr, target: tax}
-                        if (nodes.indexOf(tax) == -1) {
+                        var tax = {id: "tax_" + String(obs.taxon_id), type: "taxa"},
+                            usr = {id: "usr_" + String(obs.user_id), type: "user"}
+                        var taxIndex = 0, usrIndex = 0
+                        // Check if the taxon, etc exists
+                        if ( _.where(nodes, tax).length == 0 ) {
                             nodes.push(tax)
                         }
-                        if (nodes.indexOf(usr) == -1) {
+                        taxIndex = _.indexOf(nodes, _.where(nodes, tax)[0])
+
+                        if ( _.where(nodes, usr).length == 0 ) {
                             nodes.push(usr)
                         }
-                        if (links.indexOf(lnk) == -1) {
+                        usrIndex = _.indexOf(nodes, _.where(nodes, usr)[0])
+
+                        var lnk = {source: nodes[usrIndex], target: nodes[taxIndex]}
+                        if ( _.where(links, lnk).length == 0 ) {
                             links.push(lnk)
+                            restart()
                         }
                     }
                     //-restart()
