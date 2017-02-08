@@ -40,7 +40,13 @@ block scripts
             // Apply the general update pattern to the nodes.
             node = node.data(nodes, function(d) { return d.id;});
             node.exit().remove();
-            node = node.enter().append("circle").attr("fill", "#c4e").attr("r", 8).attr("class", function(d){return(d.type)}).merge(node);
+            node = node.enter()
+                .append("circle")
+                .attr("fill", "#c4e")
+                .attr("r", 8)
+                .attr("img", function(d){if(d.type == "user"){return d.icon} else {return 'none'}})
+                .attr("class", function(d){return(d.type)})
+                .merge(node);
 
             // Apply the general update pattern to the links.
             link = link.data(links, function(d) { return d.source.id + "-" + d.target.id; });
@@ -61,7 +67,7 @@ block scripts
                     for (var i = 0; i < data.length; i++) {
                         var obs = data[i];
                         var tax = {id: "tax_" + String(obs.taxon_id), type: "taxa"},
-                            usr = {id: "usr_" + String(obs.user_id), type: "user"}
+                            usr = {id: "usr_" + String(obs.user_id), type: "user", icon: obs.user.user_icon_url}
                         var taxIndex = 0, usrIndex = 0
                         // Check if the taxon, etc exists
                         if ( _.where(nodes, tax).length == 0 ) {
