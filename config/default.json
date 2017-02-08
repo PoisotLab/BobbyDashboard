@@ -1,10 +1,10 @@
 {
     "event": {
-        "slug": "anahuac-national-wildlife-refuge",
+        "slug": "plants-of-texas",
         "coordinates": {
-            "latitude": 29.6101675392,
-            "longitude": -94.4745426485,
-            "zoom": 10
+            "latitude": 31.1688995361,
+            "longitude": -100.077003479,
+            "zoom": 7
         }
     },
     "app": {
