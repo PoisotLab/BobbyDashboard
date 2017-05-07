@@ -9,6 +9,18 @@ html(ng-app="bobby")
         script(src="bower_components/angular/angular.min.js")
         script(src="bower_components/angular-route/angular-route.min.js")
         
+        //- Google map API (Maps)
+        script(src="http://maps.google.com/maps/api/js?key=AIzaSyACvfsQWMCVxdq1h7GAsJCIZGzZN3w7ujU")
+
+        //- Leaflet (CSS + JS)
+        script(src="/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js")
+        link(rel="stylesheet" href="/bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.css")
+        link(rel="stylesheet" href="/bower_components/leaflet/dist/leaflet.css")
+        script(src="/bower_components/leaflet/dist/leaflet.js")
+        script(src="/bower_components/Leaflet.awesome-markers/dist/leaflet.awesome-markers.min.js")
+        script(src="/bower_components/leaflet-plugins/layer/tile/Google.js")
+        script(src="/bower_components/ui-leaflet/dist/ui-leaflet.min.js")
+        
         //- init and set routes
         script(src="/js/routes.js")
         //- set API service
@@ -16,7 +28,7 @@ html(ng-app="bobby")
         script(src="/js/services/api.js")
         //- set controllers
         script(src="/js/controllers/nav.js")
-        script(src="/js/controllers/test.js")
+        script(src="/js/controllers/map.js")
       
         
         block title

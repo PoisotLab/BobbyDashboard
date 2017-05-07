@@ -27,7 +27,7 @@ angular.module('bobby')
           };
 
           if (data.length < tot_entries) {
-            
+
             var percentComplete = (data.length+1)/tot_entries * 100;
             deferred.notify(percentComplete);
 
@@ -43,40 +43,3 @@ angular.module('bobby')
         });
     }
   }]);
-
-
-  //   this.getData = function() {
-  //
-  //     var deferred = $q.defer();
-  //     var data = [];
-  //
-  //     $http.get(API_CONFIG.baseURL + API_CONFIG.projectEndPoint + '?per_page=' + API_CONFIG.perPage).
-  //     then(function(response) {
-  //
-  //       // Get number of page from response header
-  //       var npages = Math.ceil(response.headers()['x-total-entries'] / response.headers()['x-per-page']);
-  //
-  //       // Loop over pages
-  //       for (var i = 1; i <= npages; i++) {
-  //         $http.get().
-  //         // Loop over data within the page
-  //         then(function(response) {
-  //           response.data.forEach(function(item) {
-  //             data.push(item);
-  //           });
-  //         });
-  //
-  //         if(data.length == npages * API_CONFIG.perPage){
-  //             return deferred.resolve(data);
-  //         } else {
-  //             return deferred.reject(data);
-  //         };
-  //
-  //       };
-  //
-  //     });
-  //
-  //     return deferred.promise;
-  //
-  //   };
-  //

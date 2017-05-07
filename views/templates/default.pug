@@ -1,6 +1,6 @@
 block infopane
 block contentpane
-div(ng-controller="nav")#navbar
+div(ng-controller="nav" data-ng-init="refresh()")#navbar
     ul
         a(href="/#")
             li(ng-class="{ active: isActive('/')}").nav_home <i class="fa fa-home fa-fw" aria-hidden="true"></i>
@@ -10,3 +10,5 @@ div(ng-controller="nav")#navbar
             li(ng-class="{ active: isActive('/taxon')}").nav_tax <i class="fa fa-list fa-fw" aria-hidden="true"></i>
         a(href="/users")
             li(ng-class="{ active: isActive('/users')}").nav_usr <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+        a(href="#" ng-click="refresh()")
+            li <i ng-class="{'fa fa-refresh': progress==100, 'fa fa-refresh fa-spin': progress!=100}"></i>

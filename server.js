@@ -15,6 +15,7 @@ dashboard.use(express.static(publicDir));
 // Setup static css/html generators (pug and stylus)
 dashboard.set('view engine', 'pug')
 dashboard.use(stylus({
+    force: true,
     src: publicDir,
     use: [nib()],
     import: ['nib']

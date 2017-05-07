@@ -2,8 +2,7 @@ extends ../templates/default
 
 block infopane
     div#sidebar
-        INFO
 
 block contentpane
-  div#content
-    h1 Hello world
+  div#map
+    leaflet(id="map" lf-center="quebec" layers="layers" markers="markers" defaults="defaults")

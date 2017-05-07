@@ -17,6 +17,11 @@
   ],
   "dependencies": {
     "angular-route": "1.6.4",
-    "angular": "1.6"
+    "angular": "1.6",
+    "ui-leaflet": "^1.0.1",
+    "angular-simple-logger": "0.1.7",
+    "leaflet-plugins": "^2.0.0",
+    "Leaflet.awesome-markers": "^2.0.2",
+    "leaflet": "^0.7.7"
   }
 }

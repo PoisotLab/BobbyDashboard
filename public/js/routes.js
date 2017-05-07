@@ -1,7 +1,7 @@
 'use strict';
 
 // Init and set dependancies
-var bobby = angular.module('bobby', ['ngRoute']);
+var bobby = angular.module('bobby', ['ngRoute','ui-leaflet']);
 // Config and create routes
 bobby.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
@@ -10,14 +10,14 @@ bobby.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 
     $routeProvider.
     when("/", {
-        templateUrl: 'partials/home',
-        controller: 'test'
+        templateUrl: 'partials/home'
     }).
     when("/taxon", {
         templateUrl: 'partials/taxon'
     }).
     when("/map", {
-        templateUrl: 'partials/map'
+        templateUrl: 'partials/map',
+        controller: 'map'
     });
 
 

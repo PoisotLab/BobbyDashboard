@@ -28,7 +28,7 @@ html {
 }
 body {
   margin-top: 50px;
-  min-height: calc(100% -$barwidth);
+  min-height: 100%;
 }
 table,
 th,
@@ -168,7 +168,6 @@ table {
   width: 100%;
   position: fixed;
   top: 0;
-  left: 60px;
 }
 #navbar {
   display: block;
