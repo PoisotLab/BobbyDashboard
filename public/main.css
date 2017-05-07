@@ -28,7 +28,7 @@ html {
 }
 body {
   margin-top: 50px;
-  min-height: calc(100% -50px);
+  min-height: calc(100% -$barwidth);
 }
 table,
 th,
@@ -163,12 +163,12 @@ table {
   left: 350px;
 }
 #map,
-#fulld3 {
+#content {
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
-  left: 50px;
+  left: 60px;
 }
 #navbar {
   display: block;

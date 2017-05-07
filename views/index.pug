@@ -1,0 +1,25 @@
+doctype html
+html(ng-app="bobby")
+    head
+        base(href="/")
+        link(rel='stylesheet', href='/fa/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/main.css')
+        
+        //- angular (CSS + JS)
+        script(src="bower_components/angular/angular.min.js")
+        script(src="bower_components/angular-route/angular-route.min.js")
+        
+        //- init and set routes
+        script(src="/js/routes.js")
+        //- set API service
+        script(src="/js/config.js")
+        script(src="/js/services/api.js")
+        //- set controllers
+        script(src="/js/controllers/nav.js")
+        script(src="/js/controllers/test.js")
+      
+        
+        block title
+            title BioBlitz interactive dashboard
+    body
+      div(ng-view)
