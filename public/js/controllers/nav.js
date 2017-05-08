@@ -10,10 +10,8 @@ angular.module('bobby')
       $scope.refresh = function() {
         api.getAllPages().then(function(results) {
           $rootScope.data = results;
-          console.log($rootScope.data);
         }, null, function(percentComplete) {
           $rootScope.progress = percentComplete;
-          console.log($rootScope.progress);
         })
       };
 

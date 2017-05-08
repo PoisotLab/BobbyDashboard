@@ -21,6 +21,7 @@ angular.module('bobby')
         .then(function(response) {
 
           var tot_entries = Math.ceil(response.headers()['x-total-entries']);
+          var percentComplete = 0;
 
           for (var i = response.data.length - 1; i >= 0; i--) {
             data.push(response.data[i]);
@@ -28,14 +29,14 @@ angular.module('bobby')
 
           if (data.length < tot_entries) {
 
-            var percentComplete = (data.length+1)/tot_entries * 100;
+            percentComplete = (data.length+1)/tot_entries * 100;
             deferred.notify(percentComplete);
 
             pageNumber++;
             _getPages(pageNumber,data,deferred);
 
           } else {
-            var percentComplete = 100;
+            percentComplete = 100;
             deferred.notify(percentComplete);
             deferred.resolve(data);
           }
