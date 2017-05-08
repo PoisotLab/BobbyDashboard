@@ -23,6 +23,7 @@
     "leaflet-plugins": "^2.0.0",
     "Leaflet.awesome-markers": "^2.0.2",
     "leaflet": "^0.7.7",
-    "angular-nvd3": "^1.0.9"
+    "angular-nvd3": "^1.0.9",
+    "bootstrap": "^3.3.7"
   }
 }
