@@ -1,0 +1,8 @@
+extends ../templates/default
+
+block infopane
+  div#sidebar
+
+block contentpane
+  div#map
+    leaflet(id="map" lf-center="quebec" layers="layers" markers="markers" defaults="defaults")

@@ -28,7 +28,7 @@ html {
 }
 body {
   margin-top: 50px;
-  min-height: calc(100% -50px);
+  min-height: 100%;
 }
 table,
 th,
@@ -37,6 +37,51 @@ td {
 }
 table {
   min-width: 100%;
+}
+
+.Actinopterygii {
+  background-color: #d32f2f;
+  border-radius: 120px;
+}
+.Amphibia {
+  background-color: #c2185b;
+  border-radius: 120px;
+}
+.Aves {
+  background-color: #1976d2;
+  border-radius: 120px;
+}
+.Insecta {
+  background-color: #689f38;
+  border-radius: 120px;
+}
+.Mammalia {
+  background-color: #afb42b;
+  border-radius: 120px;
+}
+.Plantae {
+  background-color: #00796b;
+  border-radius: 120px;
+}
+.Reptilia {
+  background-color: #5d4037;
+  border-radius: 120px;
+}
+.Fungi {
+  background-color: #0097a7;
+  border-radius: 120px;
+}
+.Animalia {
+  background-color: #7b1fa2;
+  border-radius: 120px;
+}
+.Mollusca {
+  background-color: #ffa000;
+  border-radius: 120px;
+}
+.Chromista {
+  background-color: #0288d1;
+  border-radius: 120px;
 }
 .obsicon {
   width: 6px !important;
@@ -163,12 +208,11 @@ table {
   left: 350px;
 }
 #map,
-#fulld3 {
+#content {
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
-  left: 50px;
 }
 #navbar {
   display: block;

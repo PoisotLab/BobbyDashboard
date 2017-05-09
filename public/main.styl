@@ -1,7 +1,7 @@
 $sans = "Liberation Sans", sans-serif
 $mono = monospace
 
-$barheight = 50px
+$barwidth = 50px
 
 @import "styles/colors.styl"
 
@@ -19,8 +19,8 @@ html
     height: 100%
 
 body
-    margin-top: $barheight
-    min-height: calc(100%-50px)
+    margin-top: $barwidth
+    min-height: 100%
 
 table, th, td
     border-collapse: collapse
@@ -32,7 +32,42 @@ colored-icon(n)
     background-color: transparentify(n, #fff, 0.8)
     border: 1px solid transparentify(n, #fff, 0.5)
 
-.obsicon 
+.Actinopterygii
+    background-color: $ActinopterygiiColor
+    border-radius: 120px
+.Amphibia
+    background-color: $AmphibiaColor
+    border-radius: 120px
+.Aves
+    background-color: $AvesColor
+    border-radius: 120px
+.Insecta
+    background-color: $InsectaColor
+    border-radius: 120px
+.Mammalia
+    background-color: $MammaliaColor
+    border-radius: 120px
+.Plantae
+    background-color: $PlantaeColor
+    border-radius: 120px
+.Reptilia
+    background-color: $ReptiliaColor
+    border-radius: 120px
+.Fungi
+    background-color: $FungiColor
+    border-radius: 120px
+.Animalia
+    background-color: $AnimaliaColor
+    border-radius: 120px
+.Mollusca
+    background-color: $MolluscaColor
+    border-radius: 120px
+.Chromista
+    background-color: $ChromistaColor
+    border-radius: 120px
+
+
+.obsicon
     width: 6px !important
     height: 6px !important
     border-radius: 6px
@@ -74,19 +109,19 @@ colored-icon(n)
 
 .fa.Amphibia
     color: $AmphibiaColor !important
-    
+
 .fa.Fungi
     color: $FungiColor !important
-    
+
 .fa.Actinopterygii
     color: $ActinopterygiiColor !important
 
 .fa.Insecta
     color: $InsectaColor !important
-    
+
 .fa.Animalia
     color: $AnimaliaColor !important
-    
+
 .fa.Mollusca
     color: $MolluscaColor !important
 
@@ -98,7 +133,7 @@ colored-icon(n)
     background-color: $elements
     width: 300px
     height: 100%
-    left: $barheight
+    left: $barwidth
     top: 0
     z-index: 500
     margin: 0 0 0 0
@@ -116,6 +151,9 @@ colored-icon(n)
             border-top: 1px solid $shadow
             padding: 0.3em
 
+#fulld3
+    height: 100vh !important;
+
 #main
     margin: 0 0 0 0
     padding: 2em
@@ -124,12 +162,11 @@ colored-icon(n)
     top: 0
     left: 350px
 
-#map, #fulld3
+#map, #content
     height: 100%
     width: 100%
     position: fixed
     top: 0
-    left: 50px
 
 #navbar
     a
@@ -141,7 +178,7 @@ colored-icon(n)
     position: fixed
     top: 0
     left: 0
-    width: $barheight
+    width: $barwidth
     height: 100%
     box-shadow: 0px 0px 2px 2px $shadow
     z-index: 1000
@@ -152,7 +189,7 @@ colored-icon(n)
     li
         margin: 10px 0px
         width: 46px
-        height: $barheight
+        height: $barwidth
         line-height: 50px
         font-size: 25px
         box-sizing: content-box !important
@@ -173,7 +210,7 @@ svg
     height: 100%
     top: 0
     position: absolute
-    .user 
+    .user
         fill: red
     .taxa
         fill: blue

@@ -1,0 +1,29 @@
+{
+  "name": "bobby",
+  "description": "A dashboard for bioblitz events, interacting with iNaturalist",
+  "main": "index.js",
+  "authors": [
+    "Timothée Poisot & Steve Vissault"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/SteveViss/BobbyDashboard",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "1.6.4",
+    "angular": "1.6",
+    "ui-leaflet": "^1.0.1",
+    "angular-simple-logger": "0.1.7",
+    "leaflet-plugins": "^2.0.0",
+    "Leaflet.awesome-markers": "^2.0.2",
+    "leaflet": "^0.7.7",
+    "angular-nvd3": "^1.0.9",
+    "bootstrap": "^3.3.7"
+  }
+}
