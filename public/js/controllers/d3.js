@@ -3,7 +3,8 @@ angular.module('bobby')
     $scope.options = {
       chart: {
         type: 'pieChart',
-        donut: true,
+        height:800,
+        labelsOutside:true,
         x: function(d) {
           return d.taxa;
         },
@@ -11,6 +12,7 @@ angular.module('bobby')
           return d.count;
         },
         showLabels: true,
+        showLegend: false,
         pie: {
           startAngle: function(d) {
             return d.startAngle / 2 - Math.PI / 2
@@ -19,15 +21,7 @@ angular.module('bobby')
             return d.endAngle / 2 - Math.PI / 2
           }
         },
-        duration: 500,
-        legend: {
-          margin: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
+        duration: 500
       }
     };
 
