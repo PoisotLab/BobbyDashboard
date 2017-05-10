@@ -10,8 +10,7 @@ bobby.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
 
     $routeProvider.
     when("/", {
-        templateUrl: 'partials/home',
-        controller: 'applets'
+        templateUrl: 'partials/home'
     }).
     when("/taxon", {
         templateUrl: 'partials/taxon'
@@ -19,7 +18,8 @@ bobby.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     when("/map", {
         templateUrl: 'partials/map',
         controller: 'map'
-    });
+    }).
+    otherwise({redirectTo:'/'});
 
 
 }]);

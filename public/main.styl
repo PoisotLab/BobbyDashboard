@@ -160,13 +160,24 @@ colored-icon(n)
     box-sizing: content-box
     position: absolute
     top: 0
-    left: 350px
+    left: $barwidth
 
 #map, #content
     height: 100%
     width: 100%
     position: fixed
     top: 0
+
+.jumbotron
+  h1
+    font-weight: bold
+    font-size: 35px
+  padding-top: 10px
+  background: url("/img/diatom_band.jpg") no-repeat center center;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
 
 #navbar
     a
@@ -204,13 +215,3 @@ colored-icon(n)
             border-right: 4px solid $high_muted
             &:hover
                 border-right: 4px solid $high
-
-svg
-    width: 100%
-    height: 100%
-    top: 0
-    position: absolute
-    .user
-        fill: red
-    .taxa
-        fill: blue
