@@ -17,6 +17,7 @@ a {
 a:hover {
   color: #37bc9b;
 }
+@import url("https://fonts.googleapis.com/css?family=Paytone+One");
 html,
 body {
   margin: 0 0 0 0;
@@ -41,46 +42,79 @@ table {
 .Actinopterygii {
   background-color: #d32f2f;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Amphibia {
   background-color: #c2185b;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Aves {
   background-color: #1976d2;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Insecta {
   background-color: #689f38;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Mammalia {
   background-color: #afb42b;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Plantae {
   background-color: #00796b;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Reptilia {
   background-color: #5d4037;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Fungi {
   background-color: #0097a7;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Animalia {
   background-color: #7b1fa2;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Mollusca {
   background-color: #ffa000;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .Chromista {
   background-color: #0288d1;
   border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
 }
 .obsicon {
   width: 6px !important;
@@ -201,13 +235,11 @@ table {
 }
 #main {
   margin: 0 0 0 0;
-  padding: 2em;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  position: absolute;
+  height: 100%;
+  width: 100%;
+  position: fixed;
   top: 0;
-  left: 50px;
+  padding-left: 50px;
 }
 #map,
 #content {
@@ -218,6 +250,7 @@ table {
 }
 .jumbotron {
   padding-top: 10px;
+  padding-bottom: 10px;
   background: url("/img/diatom_band.jpg") no-repeat center center;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
@@ -227,6 +260,7 @@ table {
   background-size: 100% auto;
 }
 .jumbotron h1 {
+  font-family: monospace;
   font-weight: bold;
   font-size: 35px;
 }

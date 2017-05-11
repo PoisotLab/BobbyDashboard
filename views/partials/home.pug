@@ -1,26 +1,42 @@
 extends ../templates/default
 
 block contentpane
-      .container-fluid#main
-        .row
-          .jumbotron
-            h1 Bioblitz monitoring center
-            p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labore. 
-          .col-md-6(ng-controller="donut")
-            .panel.panel-default
-              .panel-heading 
-                h4 Proportion of phylogenic classes
-              .panel-body
-                nvd3(options="options" data="data" config="config")
-          .col-md-6(ng-controller="chart")
-            .panel.panel-default
-              .panel-heading 
-                h4 Sampling effort
-              .panel-body
-                nvd3(options="options" data="data")
-          .col-md-6
-            .panel.panel-default
-              .panel-heading 
-                h4 Sampling effort
-              .panel-body
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  div#main
+    .container-fluid
+      .row
+        .jumbotron
+          h1 Bioblitz 
+            span(style="font-weight:normal;") monitoring center
+          p Powered by oqe.ca and inaturalist.org
+      .row
+        .col-md-12
+          span(class="label label-default" style="padding-bottom:10px;font-size:13px;font-weight:normal") Last data update: 
+            span(am-time-ago="dataUpdate")
+      .row
+        .col-md-6(ng-controller="donut")
+          .panel.panel-default
+            .panel-body
+              div(ng-if="progress!=100" style="text-align:center;")
+                i(class="fa fa-refresh fa-spin fa-4x fa-fw")
+              nvd3(options="options" data="data" config="config" ng-if="progress==100")
+        .col-md-6(ng-controller="chart")
+          .panel.panel-default
+            .panel-body
+              div(ng-if="progress!=100" style="text-align:center;")
+                i(class="fa fa-refresh fa-spin fa-4x fa-fw")
+              nvd3(options="options" data="data" ng-if="progress==100")
+        .col-md-6
+          .panel.panel-default
+            .panel-heading
+              h4(style="margin: 0 0 0 0;")
+                i.fa.fa-tachometer.fa-1x(aria-hidden="true")
+                |  Synthesis
+            .panel-body
+              div(ng-if="progress!=100" style="text-align:center;")
+                i(class="fa fa-refresh fa-spin fa-4x fa-fw")
+              div(ng-if="progress==100")
+                p #[strong iNaturalist project ID:] {{synthesis.projectID}}
+                p #[strong Number of participants:] {{synthesis.n_user}}
+                p #[strong Number of species:] {{synthesis.n_sp}}
+                p #[strong Number of records:] {{synthesis.n_spec}}
+                
