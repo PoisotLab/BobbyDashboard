@@ -76,7 +76,7 @@ angular.module('bobby')
     // init basemap
     angular.extend($rootScope, {
       defaults: {
-        maxZoom: 10,
+        maxZoom: 15,
         minZoom: 4,
       },
       quebec: {

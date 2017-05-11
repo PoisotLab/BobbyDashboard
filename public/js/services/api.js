@@ -3,19 +3,19 @@
 angular.module('bobby')
   .service('api', ['$http', 'API_CONFIG', '$q', function($http, API_CONFIG, $q) {
 
-    this.getAllPages = function() {
+    this.getAllPages = function(projectID) {
       var deferred = $q.defer();
       var pageNumber = 1;
       var data = [];
 
-      _getPages(pageNumber,data,deferred);
+      _getPages(pageNumber,data,deferred,projectID);
 
       return deferred.promise;
     }
 
-    function _getPages(pageNumber,data,deferred) {
+    function _getPages(pageNumber,data,deferred,projectID) {
 
-      $http.get(API_CONFIG.baseURL + API_CONFIG.projectEndPoint + '?page=' + pageNumber + '&per_page=' + API_CONFIG.perPage, {
+      $http.get(API_CONFIG.baseURL + API_CONFIG.projectEndPoint + projectID + '.json?page=' + pageNumber + '&per_page=' + API_CONFIG.perPage, {
         cache: true
       })
         .then(function(response) {
@@ -33,7 +33,7 @@ angular.module('bobby')
             deferred.notify(percentComplete);
 
             pageNumber++;
-            _getPages(pageNumber,data,deferred);
+            _getPages(pageNumber,data,deferred,projectID);
 
           } else {
             percentComplete = 100;

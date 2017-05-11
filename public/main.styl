@@ -4,6 +4,8 @@ $mono = monospace
 $barwidth = 50px
 
 @import "styles/colors.styl"
+@import url('https://fonts.googleapis.com/css?family=Paytone+One')
+
 
 substract(a, b)
     a = unit(a, px)
@@ -35,36 +37,69 @@ colored-icon(n)
 .Actinopterygii
     background-color: $ActinopterygiiColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Amphibia
     background-color: $AmphibiaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Aves
     background-color: $AvesColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Insecta
     background-color: $InsectaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Mammalia
     background-color: $MammaliaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Plantae
     background-color: $PlantaeColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Reptilia
     background-color: $ReptiliaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Fungi
     background-color: $FungiColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Animalia
     background-color: $AnimaliaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Mollusca
     background-color: $MolluscaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 .Chromista
     background-color: $ChromistaColor
     border-radius: 120px
+    border-color: #ffffff
+    border-style: solid
+    border-width: 1px
 
 
 .obsicon
@@ -156,11 +191,11 @@ colored-icon(n)
 
 #main
     margin: 0 0 0 0
-    padding: 2em
-    box-sizing: content-box
-    position: absolute
+    height: 100%
+    width: 100%
+    position: fixed
     top: 0
-    left: $barwidth
+    padding-left: $barwidth
 
 #map, #content
     height: 100%
@@ -170,9 +205,11 @@ colored-icon(n)
 
 .jumbotron
   h1
+    font-family: $mono
     font-weight: bold
     font-size: 35px
   padding-top: 10px
+  padding-bottom: 10px
   background: url("/img/diatom_band.jpg") no-repeat center center;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
