@@ -15,7 +15,7 @@ angular.module('bobby')
         $rootScope.data = results;
         $rootScope.dataUpdate = moment();
 
-        // Compute some stats
+        // SYNTHESIS PANEL
 
         // Number of records
         $rootScope.synthesis.n_spec = $rootScope.data.length;
@@ -54,8 +54,12 @@ angular.module('bobby')
 
         // time periode
         $rootScope.synthesis.timeline = results.map(function(t) {
-          return t.created_at;
+          return moment(t.created_at);
         });
+
+        $rootScope.synthesis.max_time = moment.max($rootScope.synthesis.timeline);
+        $rootScope.synthesis.min_time = moment.min($rootScope.synthesis.timeline);
+
 
       }, null, function(percentComplete) {
         $rootScope.progress = percentComplete;

@@ -8,7 +8,6 @@ div(ng-controller="nav" data-ng-init="refresh()")#navbar
             li(ng-class="{ active: isActive('/bobby/{{synthesis.projectID}}/map')}").nav_map <i class="fa fa-map fa-fw" aria-hidden="true"></i>
         a(href="/bobby/{{synthesis.projectID}}/taxon")
             li(ng-class="{ active: isActive('/bobby/{{synthesis.projectID}}/taxon')}").nav_tax <i class="fa fa-list fa-fw" aria-hidden="true"></i>
-        a(href="/bobby/{{synthesis.projectID}}/users")
-            li(ng-class="{ active: isActive('/bobby/{{synthesis.projectID}}/users')}").nav_usr <i class="fa fa-user fa-fw" aria-hidden="true"></i>
         a(href="#" ng-click="refresh()")
-            li <i ng-class="{'fa fa-refresh': progress==100, 'fa fa-refresh fa-spin': progress!=100}"></i>
+            li 
+              i(ng-class="{'fa fa-refresh': progress==100, 'fa fa-refresh fa-spin': progress!=100}")

@@ -1,7 +1,7 @@
 'use strict';
 
 // Init and set dependancies
-var bobby = angular.module('bobby', ['ngRoute','ui-leaflet','nvd3','angularMoment']);
+var bobby = angular.module('bobby', ['ngRoute','ui-leaflet','nvd3','angularMoment','angular-underscore']);
 // Config and create routes
 bobby.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 

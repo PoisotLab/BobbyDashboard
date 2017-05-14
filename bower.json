@@ -25,6 +25,8 @@
     "leaflet": "^0.7.7",
     "angular-nvd3": "^1.0.9",
     "bootstrap": "^3.3.7",
-    "angular-moment": "^1.0.1"
+    "angular-moment": "^1.0.1",
+    "angular-underscore": "^0.5.0",
+    "underscore": "^1.8.3"
   }
 }

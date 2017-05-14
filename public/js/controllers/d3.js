@@ -19,7 +19,7 @@ angular.module('bobby')
     $scope.options = {
       chart: {
         type: 'pieChart',
-        height: 350,
+        height: 400,
         margin: {
           top: 5,
           right: 5,
@@ -74,85 +74,131 @@ angular.module('bobby')
 
 angular.module('bobby')
   .controller('chart', ['$scope', '$rootScope', function($scope, $rootScope) {
-    $scope.options = {
-      chart: {
-        type: 'multiBarChart',
-        height: 350,
-        margin: {
-          top: 20,
-          right: 20,
-          bottom: 45,
-          left: 45
-        },
-        clipEdge: true,
-        duration: 500,
-        stacked: true,
-        xAxis: {
-          axisLabel: 'Time (ms)',
-          showMaxMin: false,
-          tickFormat: function(d) {
-            return d3.format(',f')(d);
-          }
-        },
-        yAxis: {
-          axisLabel: 'Y Axis',
-          axisLabelDistance: -20,
-          tickFormat: function(d) {
-            return d3.format(',.1f')(d);
-          }
-        }
-      }
+
+    colors = {
+      Actinopterygii: "#d32f2f",
+      Amphibia: "#c2185b",
+      Aves: "#1976d2",
+      Insecta: "#689f38",
+      Mammalia: "#afb42b",
+      Plantae: "#00796b",
+      Reptilia: "#5d4037",
+      Fungi: "#0097a7",
+      Animalia: "#7b1fa2",
+      Mollusca: "#ffa000",
+      Chromista: "#0288d1"
     };
 
-    $scope.data = generateData();
+    $scope.options = {
+              chart: {
+                  type: 'stackedAreaChart',
+                  height: 400,
+                  margin : {
+                      top: 40,
+                      right: 10,
+                      bottom: 40,
+                      left: 60
+                  },
+                  x: function(d){return d.x;},
+                  y: function(d){return d.y;},
+                  useVoronoi: false,
+                  clipEdge: true,
+                  duration: 100,
+                  useInteractiveGuideline: true,
+                  xAxis: {
+                      axisLabel: 'Days',
+                      showMaxMin: false,
+                      tickFormat: function(d){
+                          return d3.format(',f')(d);
+                      }
+                  },
+                  yAxis: {
+                      axisLabel: 'Number of species',
+                      tickFormat: function(d){
+                          return d3.format(',f')(d);
+                      }
+                  },
+                  zoom: {
+                      enabled: true,
+                      scaleExtent: [1, 10],
+                      useFixedDomain: false,
+                      useNiceScale: false,
+                      horizontalOff: false,
+                      verticalOff: true,
+                      unzoomEventType: 'dblclick.zoom'
+                  }
+              }
+          };
 
-    /* Random Data Generator (took from nvd3.org) */
-    function generateData() {
-      return stream_layers(3, 50 + Math.random() * 50, .1).map(function(data, i) {
-        return {
-          key: 'Stream' + i,
-          values: data
+
+    $rootScope.$watch('data', function(data) {
+
+      if (typeof data != 'undefined') {
+
+        // compute cumulative number of recorded species (x) and days (y)
+        var res = data.map(function(d) {
+          return {
+            days: Number(moment(d.created_at).diff($rootScope.synthesis.min_time, 'days')),
+            sp: d.taxon.name,
+            class: d.iconic_taxon_name
+          };
+        });
+
+        var classes = _.chain(res)
+          .flatten()
+          .pluck('class')
+          .uniq()
+          .value();
+
+        var days = _.chain(res)
+          .flatten()
+          .pluck('days')
+          .uniq()
+          .max()
+          .value();
+
+        $scope.data = [];
+
+        for (var c = 0; c < classes.length; c++) {
+
+          var obj = {};
+          obj.key = classes[c];
+          obj.color = colors[classes[c]];
+          var count = 0;
+          obj.values = [];
+
+          for (var d = 0; d < days; d++) {
+
+            // init object and filter
+            var value = {};
+            var filter = {
+              class: classes[c],
+              days: d
+            }
+
+            value.x = d;
+            var nsp = _.chain(res)
+              .where(filter)
+              .pluck('sp')
+              .uniq()
+              .size()
+              .value();
+
+            count += nsp;
+            value.y = count;
+
+            obj.values.push(value);
+
+          };
+
+          $scope.data.push(obj);
+
         };
-      });
-    }
 
-    /* Inspired by Lee Byron's test data generator. */
-    function stream_layers(n, m, o) {
-      if (arguments.length < 3) o = 0;
-
-      function bump(a) {
-        var x = 1 / (.1 + Math.random()),
-          y = 2 * Math.random() - .5,
-          z = 10 / (.1 + Math.random());
-        for (var i = 0; i < m; i++) {
-          var w = (i / m - y) * z;
-          a[i] += x * Math.exp(-w * w);
-        }
-      }
-      return d3.range(n).map(function() {
-        var a = [],
-          i;
-        for (i = 0; i < m; i++) a[i] = o + o * Math.random();
-        for (i = 0; i < 5; i++) bump(a);
-        return a.map(stream_index);
-      });
-    }
-
-    /* Another layer generator using gamma distributions. */
-    function stream_waves(n, m) {
-      return d3.range(n).map(function(i) {
-        return d3.range(m).map(function(j) {
-          var x = 20 * j / m - i / 3;
-          return 2 * x * Math.exp(-.5 * x);
-        }).map(stream_index);
-      });
-    }
-
-    function stream_index(d, i) {
-      return {
-        x: i,
-        y: Math.max(0, d)
+        console.log($scope.data);
       };
-    }
+
+    });
+
 
   }]);
