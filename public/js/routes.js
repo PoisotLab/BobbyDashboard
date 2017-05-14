@@ -5,7 +5,6 @@ var bobby = angular.module('bobby', ['ngRoute','ui-leaflet','nvd3','angularMomen
 // Config and create routes
 bobby.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
-    $locationProvider.hashPrefix('');
     $locationProvider.html5Mode(true);
 
     $routeProvider.
