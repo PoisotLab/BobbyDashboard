@@ -195,7 +195,6 @@ angular.module('bobby')
 
         };
 
-        console.log($scope.data);
       };
 
     });
