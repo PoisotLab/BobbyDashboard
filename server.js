@@ -21,6 +21,7 @@ dashboard.use(stylus({
     import: ['nib']
 }))
 
+
 // Manage route with ngRoutes
 // Load head first
 dashboard.get('/', function(req, res) {
@@ -33,6 +34,10 @@ dashboard.get('/partials/:name', function(req, res) {
     res.render('partials/' + name);
 });
 
+// This route deals enables HTML5Mode by forwarding missing files to the index.html
+dashboard.all('/*', function(req, res) {
+  res.render('index');
+});
 
 dashboard.listen(3000, function () {
   console.log('Listening on port 3000!')
