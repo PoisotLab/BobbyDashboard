@@ -1,0 +1,30 @@
+extends ../templates/default
+
+block infopane
+  div#sidebar
+
+block contentpane
+  div#main
+    .container-fluid
+      .row
+        .jumbotron
+          h1(style="text-align:right;color:white;") Bioblitz 
+            span(style="font-weight:normal;") monitoring center
+          p 
+            img(src="./img/bbc_black.png" align="right" height="100px")
+      .row
+        .col-md-12
+          .panel.panel-default
+            .panel-body
+              div(class="row")
+                div(ng-if="progress!=100" style="text-align:center;")
+                  i(class="fa fa-refresh fa-spin fa-3x fa-fw")
+                div(ng-repeat="obs in data" ng-if="progress==100")
+                  div(class="col-sm-6 col-md-3")
+                    div(class="thumbnail")
+                      img(src='{{ obs.photos[0].medium_url }}' width='100%' ng-if="obs.photos[0].medium_url")
+                      img(src='https://static.inaturalist.org/sites/1-logo_square.png?1457659831' width='100%' ng-if="!obs.photos[0].medium_url" )
+                      div(class="caption")
+                        h4(ng-if="obs.taxon.name") {{ obs.taxon.name }}
+                        h4(ng-if="!obs.taxon.name") Unidentified species
+                        p #[strong Date: ] {{ obs.created_at | amDateFormat:'dddd, MMMM Do YYYY, h:mm:ss a' }}

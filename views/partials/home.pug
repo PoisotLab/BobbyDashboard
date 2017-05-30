@@ -5,9 +5,10 @@ block contentpane
     .container-fluid
       .row
         .jumbotron
-          h1 Bioblitz 
+          h1(style="text-align:right;color:white;") Bioblitz 
             span(style="font-weight:normal;") monitoring center
-          p Powered by oqe.ca and inaturalist.org
+          p 
+            img(src="./img/bbc.png" align="right" height="100px")
       .row
         .col-md-12
           span(class="label label-default" style="padding-bottom:10px;font-size:13px;font-weight:normal") Last data update: 
@@ -19,12 +20,6 @@ block contentpane
               div(ng-if="progress!=100" style="text-align:center;")
                 i(class="fa fa-refresh fa-spin fa-3x fa-fw")
               nvd3(options="options" data="data" config="config" ng-if="progress==100")
-        .col-md-6(ng-controller="chart")
-          .panel.panel-default
-            .panel-body
-              div(ng-if="progress!=100" style="text-align:center;")
-                i(class="fa fa-refresh fa-spin fa-3x fa-fw")
-              nvd3(options="options" data="data" ng-if="progress==100")
         .col-md-6
           .panel.panel-default
             .panel-heading
@@ -35,12 +30,12 @@ block contentpane
               div(ng-if="progress!=100" style="text-align:center;")
                 i(class="fa fa-refresh fa-spin fa-3x fa-fw")
               div(ng-if="progress==100")
-                p #[strong iNaturalist project ID:] {{synthesis.projectID}}
-                p #[strong Number of participants:] {{synthesis.n_user}}
                 p #[strong Number of species:] {{synthesis.n_sp}}
                 p #[strong Number of records:] {{synthesis.n_spec}}
-                p #[strong Campaign start:] 
+                p #[strong Campaign started:] 
                   span(am-time-ago="synthesis.min_time | amParse:'YYYY-MM-DD'")
                 p #[strong Latest records:] 
                   span(am-time-ago="synthesis.max_time | amParse:'YYYY-MM-DD HH:mm:ss'")
-                
+              div(ng-if="progress==100")
+                  //- div(ng-repeat="taxa in obs | unique: 'name'")
+                  //-   {{ taxa }}
