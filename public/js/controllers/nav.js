@@ -19,10 +19,15 @@ angular.module('bobby')
 
         // Number of records
         $rootScope.synthesis.n_spec = $rootScope.data.length;
+        $rootScope.synthesis.n_unidentified = 0;
 
-        // Count by species
+        // Count by species and
         $rootScope.synthesis.c_sp = results.map(function(r) {
-          return r.taxon.name
+          if(r.taxon != null){
+            return r.taxon.name
+          } else {
+            $rootScope.synthesis.n_unidentified =+ 1;
+          }
         }).reduce(function(sums, sp) {
           sums[sp] = (sums[sp] || 0) + 1;
           return sums;
@@ -59,6 +64,7 @@ angular.module('bobby')
 
         $rootScope.synthesis.max_time = moment.max($rootScope.synthesis.timeline);
         $rootScope.synthesis.min_time = moment.min($rootScope.synthesis.timeline);
+
 
 
       }, null, function(percentComplete) {

@@ -70,19 +70,30 @@ angular.module('bobby')
         iconSize: [10, 10],
         className: 'Chromista',
         iconAnchor: [5, 5]
+      },
+      Unidentified: {
+        type: 'div',
+        iconSize: [10, 10],
+        className: 'Unidentified',
+        iconAnchor: [5, 5]
       }
     };
 
     // init basemap
     angular.extend($rootScope, {
       defaults: {
-        maxZoom: 15,
+        maxZoom: 20,
         minZoom: 4,
       },
       quebec: {
         lat: 48,
         lng: -73,
         zoom: 7
+      },
+      controls: {
+        fullscreen: {
+          position: 'topright'
+        }
       },
       markers: {
 
@@ -160,6 +171,11 @@ angular.module('bobby')
             type: 'group',
             name: 'Chromista',
             visible: true
+          },
+          Unidentified: {
+            type: 'group',
+            name: 'Unidentified',
+            visible: true
           }
         }
       }
@@ -174,19 +190,46 @@ angular.module('bobby')
         // loop over data to push marker
         data.forEach(function(item) {
 
+
           // // loop over icons
           for (var icon in icons) {
             if (item.iconic_taxon_name == icon) {
               var select_icon = icons[icon];
+            } else if (item.iconic_taxon_name == null) {
+              var select_icon = icons['Unidentified'];
             }
           }
+
+          if (item.photos.length != 0) {
+            var src = item.photos[0].large_url
+          } else {
+            var src = "https://static.inaturalist.org/sites/1-logo_square.png?1457659831"
+          }
+
+          if (item.taxon != null) {
+            var popup =
+              "<div class='thumbnail'>" +
+              "<img src='" + src + "' width='100%'></img>" +
+              "<div class='caption'>" +
+              "<h3 style='font-weight:bold;margin-top:5px;'>" + item.taxon.name + "</h3>" +
+              "<p style='margin:0px;'>" +
+              "<strong>User ID: </strong>" + item.user_login + "<br>" +
+              "<strong>Date: </strong>" + item.observed_on_string + "</p>" +
+              "</div>" +
+              "</div>"
+          } else {
+            var popup = null
+          }
+
+
 
           // set marker
           marker = {
             layer: item.iconic_taxon_name,
             lat: Number(item.latitude),
             lng: Number(item.longitude),
-            icon: select_icon
+            icon: select_icon,
+            message: popup
           }
 
 

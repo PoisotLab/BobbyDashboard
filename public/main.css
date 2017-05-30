@@ -39,6 +39,9 @@ td {
 table {
   min-width: 100%;
 }
+p {
+  font-size: 13px;
+}
 .Actinopterygii {
   background-color: #d32f2f;
   border-radius: 120px;
@@ -111,6 +114,13 @@ table {
 }
 .Chromista {
   background-color: #0288d1;
+  border-radius: 120px;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 1px;
+}
+.Unidentified {
+  background-color: #000;
   border-radius: 120px;
   border-color: #fff;
   border-style: solid;
@@ -237,7 +247,7 @@ table {
   margin: 0 0 0 0;
   height: 100%;
   width: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   padding-left: 50px;
 }
@@ -251,7 +261,8 @@ table {
 .jumbotron {
   padding-top: 10px;
   padding-bottom: 10px;
-  background: url("/img/diatom_band.jpg") no-repeat center center;
+  min-height: 250px;
+  background: url("/img/bandeau.jpg") no-repeat center center;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
   -o-background-size: 100% auto;
